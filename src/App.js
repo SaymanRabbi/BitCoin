@@ -31,7 +31,7 @@ const App = () => {
                 <Space>
                     <Link to="/">Home</Link>
                     <Link to="/xchanges">Exchanges</Link>
-                    <Link to="/news">News</Link>
+                    <Link to="/news">Blog</Link>
                     </Space>
                     </div>
             </div>
