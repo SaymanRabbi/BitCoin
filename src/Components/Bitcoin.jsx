@@ -4,8 +4,8 @@ import { Select, Typography, Row, Col, Avatar, Card } from 'antd';
 import { Title } from 'chart.js';
 
 const Bitcoin = () => {
-    const [data] = useBitCoinNews()  
-    console.log(data)
+  const [data] = useBitCoinNews()
+  console.log(data);
     return (
         <Row gutter={[32,32]}>{
             data.map((news,i)=>(

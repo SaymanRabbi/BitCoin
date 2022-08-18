@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react"
-import axios from 'axios'
-const useBitCoinNews = () => {
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+
+const useBlockchainNews = () => {
     const [data, setData] = useState([])
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'https://bitcoin-news5.p.rapidapi.com/news', {
+                'https://blockchain-news1.p.rapidapi.com/news/NDTV', {
                     headers: {
                         'X-RapidAPI-Key': '3bf87f6f7cmshf46b0d0da592ac6p123fdajsnedb2f6166bb8',
-                        'X-RapidAPI-Host': 'bitcoin-news5.p.rapidapi.com'
+                        'X-RapidAPI-Host': 'blockchain-news1.p.rapidapi.com'
                     }
                 }
             );
@@ -17,6 +18,9 @@ const useBitCoinNews = () => {
         }
         fetchData()
     }, [])
+
+
     return [data]
-}
-export default useBitCoinNews;
+};
+
+export default useBlockchainNews;

@@ -31,7 +31,6 @@ const HomePage = () => {
             <Cryptocurrencies simplified/>
             <div className=' home-heading-container'>
                 <Title level={2} className="home-title">Letes Crypto News</Title>
-                <Title level={3} className="show-more"><Link to='/news'>Show More</Link></Title>
             </div>
             <News simplified/>
             {/* -------------Coins Card------------- */}
