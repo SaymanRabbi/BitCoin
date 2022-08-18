@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import millify from 'millify'
 import { Link } from 'react-router-dom'
 import { Card, Row, Col, Input } from 'antd'
 import { useGetCryptosQuery } from '../services/cryptoApi'
-const Cryptocurrencies = () => {
-    const { data: cryptoList, isFetching } = useGetCryptosQuery()
+const Cryptocurrencies = ({simplified}) => {
+    const count = simplified ? 10 : 100;
+    const { data: cryptoList, isFetching } = useGetCryptosQuery(count)
     const [cryptos, setCryptos] = useState(cryptoList?.data?.coins)
-    console.log(cryptos);
+    const [search, setSearch] = useState('')
+    // ------------------Search Item------------------
+    useEffect(() => {
+        setCryptos(cryptoList?.data?.coins)   
+        const filetData = cryptoList?.data?.coins.filter(coin => coin.name.toLowerCase().includes(search.toLowerCase()))
+        setCryptos(filetData)
+    }, [cryptoList, search])
+     // ------------------Search Item------------------
     if (isFetching) return <div>Loading...</div>
     
     return (
         <>
-            <Row gutters={[32,32]} className="crypto-card-container">
+            <div className='search-crypto'>
+             <Input placeholder='Serach Cryptocurrency' onChange={(e)=>setSearch(e.target.value)}/>
+            </div>
+            <Row gutter={[32,32]} className="crypto-card-container">
                 {
                     cryptos.map((crypto, uuid) => (
                         <Col key={uuid} xs={24} sm={12} lg={6} className="crypto-card">
