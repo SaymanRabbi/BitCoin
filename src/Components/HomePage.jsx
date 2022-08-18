@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
 import millify from 'millify'
 import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
 import {useGetCryptosQuery}  from '../services/cryptoApi'
 import { Cryptocurrencies, News } from '../Components'
+import Loader from './Loader';
 const HomePage = () => {
     const { Title } = Typography;
     const { data, isFetching } = useGetCryptosQuery(10)
     const globalStats = data?.data?.stats
     //distructuring the data from the globalstats
-    if(isFetching) return <div>Loading...</div>
+    if (isFetching) return <Loader/>
     const {total,totalExchanges,totalMarketCap,total24hVolume,totalMarkets} = globalStats 
     return (
         <>

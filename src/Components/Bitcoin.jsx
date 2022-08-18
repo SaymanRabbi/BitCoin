@@ -1,11 +1,8 @@
 import React from 'react';
 import useBitCoinNews from '../services/useCoinNews';
-import { Select, Typography, Row, Col, Avatar, Card } from 'antd';
-import { Title } from 'chart.js';
-
+import {  Row, Col, Card } from 'antd';
 const Bitcoin = () => {
   const [data] = useBitCoinNews()
-  console.log(data);
     return (
         <Row gutter={[32,32]}>{
             data.map((news,i)=>(

@@ -1,8 +1,5 @@
 import React from 'react';
-import { Select, Typography, Row, Col, Avatar, Card } from 'antd';
-import moment from 'moment';
-import Bitcoin from './Bitcoin';
-import BlockChain from './BlockChain';
+import { Row, Col, Avatar, Card } from 'antd';
 import { Link } from 'react-router-dom';
 const { Meta } = Card;
 const News = () => {
